@@ -1,0 +1,23 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.custom-navbar {
+  width: 100vw;
+}
+
+.textSpan{
+font-family: 'Open Sans';
+color: #fff;
+font-weight: 600;
+font-size: 1.3em;
+}
+.SpanPartes{
+    color: #db1d1d;
+}
+.SpanBeijian{
+    color: #dcba0d;
+}

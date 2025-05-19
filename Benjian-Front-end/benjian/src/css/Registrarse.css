@@ -1,0 +1,29 @@
+
+.containerPersonalizado{
+    background-color: #fffcfc;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px #1a1a1a41;
+
+}
+.formPersonalizado{
+    padding: 15px;
+}
+.buttonRegistro{
+    margin-top: 0;
+    margin-left: 220px;
+    background-color: #fff;
+    border: 2px;
+}
+.logoPersonalizadoRegistro{
+    width: 140px;
+    height: 100px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.registroSpan{
+    margin-top: 70px;
+}
