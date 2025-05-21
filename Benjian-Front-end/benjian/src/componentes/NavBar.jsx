@@ -38,7 +38,7 @@ const NavBar = () => {
 
         {/* Botones alineados al final del navbar */}
         <div className="d-flex ms-auto">
-          <button className="btn btn-success" onClick={() => navigate('/registrarse')}>Registrarse</button>&nbsp;&nbsp;
+          <button className="btn btn-success" onClick={() => navigate('/registrar')}>Registrarse</button>&nbsp;&nbsp;
           <button className="btn btn-outline-light me-2" onClick={()=> navigate('/login')}>Iniciar Sesión</button>&nbsp;&nbsp;
         </div>
       </div>

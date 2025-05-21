@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -31,16 +33,20 @@ public class AuthServiceImpl implements IAuthService {
 
     @Override
     public String Login(String username, String password) {
-        try {
-            var authToken = new UsernamePasswordAuthenticationToken(username, password);
-            var authenticate = authenticationManager.authenticate(authToken);
-            
-            // Obtener el nombre de usuario del objeto UserDetails
-            UserDetails userDetails = (UserDetails) authenticate.getPrincipal();
-            return JwtUtils.generateToken(userDetails.getUsername());
-        } catch (Exception e) {
-            throw new RuntimeException("Error de autenticación: " + e.getMessage());
-        }
+       try {
+    var authToken = new UsernamePasswordAuthenticationToken(username, password);
+    var authenticate = authenticationManager.authenticate(authToken);
+
+    UserDetails userDetails = (UserDetails) authenticate.getPrincipal();
+    return JwtUtils.generateToken(userDetails.getUsername());
+
+} catch (BadCredentialsException e) {
+    throw new RuntimeException("Contraseña incorrecta.");
+} catch (UsernameNotFoundException e) {
+    throw new RuntimeException("Usuario no encontrado.");
+} catch (Exception e) {
+    throw new RuntimeException("Error inesperado: " + e.getMessage());
+}
     }
 
     @Override
